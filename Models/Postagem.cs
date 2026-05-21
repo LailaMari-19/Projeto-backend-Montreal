@@ -25,7 +25,7 @@ namespace BlogPessoal.Models
 
         public virtual Tema? Tema { get; set; }
         [ForeignKey("Tema")]
-        public long? TemaId { get; set; } // O '?' aqui é obrigatório
+        public long? TemaId { get; set; }
 
         public virtual Usuario? Usuario { get; set; }
         [ForeignKey("Usuario")]
