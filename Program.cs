@@ -11,7 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// 2. Registro de Repositórios (Injeção de Dependência)
+// 2. Registro de Repositórios 
 builder.Services.AddScoped<IPostagemRepository, PostagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
@@ -20,7 +20,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IIAService, OpenAIService>();
 
-// 4. Configurações de API
+// 4. Configurações da API
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -37,8 +37,9 @@ if (app.Environment.IsDevelopment())
 // 6. Middlewares
 app.UseHttpsRedirection();
 
-// Comente ou remova o UseAuthorization() temporariamente caso o erro de 
-// "AuthenticationScheme" persista até você configurar o JWT no builder.Services.
+// Temporariamente desabilitado para permitir testes de integração da API. 
+// A autenticação (JWT) será ativada após a finalização da implementação do Identity.
+// app.UseAuthentication();
 // app.UseAuthorization(); 
 
 app.MapControllers();
