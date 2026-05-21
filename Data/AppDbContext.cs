@@ -17,7 +17,7 @@ namespace BlogPessoal.Data
                 .HasOne(p => p.Tema)
                 .WithMany(t => t.Postagens)
                 .HasForeignKey(p => p.TemaId)
-                .IsRequired(false); // Esta linha ignora a trava do banco
+                .IsRequired(false);
 
             modelBuilder.Entity<Postagem>()
                 .HasOne(p => p.Usuario)
