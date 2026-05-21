@@ -20,15 +20,13 @@ namespace BlogPessoal.Controllers
         {
             try
             {
-                // 1. Garante que sempre exista um Tema e um Usuário válido (ID 1)
-                // Se o banco estiver vazio, certifique-se de criar o Tema 1 no Swagger antes!
+              
                 if (postagem.TemaId == null || postagem.TemaId == 0) postagem.TemaId = 1;
                 if (postagem.UsuarioId == null || postagem.UsuarioId == 0) postagem.UsuarioId = 1;
 
-                // 2. Define a data atual
                 postagem.Data = DateTimeOffset.Now;
 
-                // 3. Tenta salvar no banco
+              
                 await _repository.Add(postagem);
                 await _repository.SaveChanges();
                 
@@ -36,8 +34,7 @@ namespace BlogPessoal.Controllers
             }
             catch (Exception ex)
             {
-                // 4. Se der erro (como Chave Estrangeira ou conexão), 
-                // ele te retorna a mensagem real do erro em vez de um código 500
+               
                 var mensagemErro = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 return BadRequest("ERRO AO SALVAR NO BANCO: " + mensagemErro);
             }
