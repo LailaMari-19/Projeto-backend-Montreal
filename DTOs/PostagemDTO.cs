@@ -12,7 +12,7 @@ namespace BlogPessoal.DTOs
         
         public long TemaId { get; set; }
         
-        // Estes campos serão preenchidos pela IA posteriormente
+        // Os campos abaixo serão preenchidos pela IA posteriormente:
         public string? ResumoIA { get; set; }
         public string? TagsIA { get; set; }
         public string? CategoriaIA { get; set; }
