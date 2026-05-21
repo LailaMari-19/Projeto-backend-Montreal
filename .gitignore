@@ -1,0 +1,14 @@
+# Pastas que não devem ser enviadas
+bin/
+obj/
+.vs/
+.vscode/
+
+# Arquivos de configurações locais
+appsettings.Development.json
+*.user
+
+# Outros arquivos temporários
+*.suo
+*.userosscache
+*.sln.docstates
